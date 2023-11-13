@@ -1,0 +1,10 @@
+C:\Users\Administrateur\source\repos\Logger\Gestion\bin\Debug\Gestion.exe.config
+C:\Users\Administrateur\source\repos\Logger\Gestion\bin\Debug\Gestion.exe
+C:\Users\Administrateur\source\repos\Logger\Gestion\bin\Debug\Gestion.pdb
+C:\Users\Administrateur\source\repos\Logger\Gestion\obj\Debug\Gestion.csproj.AssemblyReference.cache
+C:\Users\Administrateur\source\repos\Logger\Gestion\obj\Debug\Gestion.Properties.Resources.resources
+C:\Users\Administrateur\source\repos\Logger\Gestion\obj\Debug\Gestion.csproj.GenerateResource.cache
+C:\Users\Administrateur\source\repos\Logger\Gestion\obj\Debug\Gestion.csproj.CoreCompileInputs.cache
+C:\Users\Administrateur\source\repos\Logger\Gestion\obj\Debug\Gestion.exe
+C:\Users\Administrateur\source\repos\Logger\Gestion\obj\Debug\Gestion.pdb
+C:\Users\Administrateur\source\repos\Logger\Gestion\obj\Debug\Gestion.Form1.resources
