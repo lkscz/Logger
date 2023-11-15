@@ -24,6 +24,7 @@ namespace Gestion
         /// </summary>
         /// 
 
+        //
         private static SortedList<string, int> listelignes = new SortedList<string, int>();
         private static void RemplirListeLettres()
         {
