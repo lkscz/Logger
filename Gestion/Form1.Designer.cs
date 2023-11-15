@@ -52,7 +52,7 @@
             this.TBX_SearchBar.ForeColor = System.Drawing.Color.Black;
             this.TBX_SearchBar.Location = new System.Drawing.Point(188, 12);
             this.TBX_SearchBar.Name = "TBX_SearchBar";
-            this.TBX_SearchBar.Size = new System.Drawing.Size(1245, 32);
+            this.TBX_SearchBar.Size = new System.Drawing.Size(1245, 27);
             this.TBX_SearchBar.TabIndex = 1;
             this.TBX_SearchBar.TextChanged += new System.EventHandler(this.Search_Bar_TextChanged);
             // 
@@ -72,7 +72,7 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(367, 50);
+            this.listBox1.Location = new System.Drawing.Point(243, 45);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(1190, 548);
             this.listBox1.TabIndex = 3;
