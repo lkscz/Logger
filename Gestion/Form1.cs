@@ -19,7 +19,9 @@ namespace Gestion
 
         private void BTN_search_Click(object sender, EventArgs e)
         {
-
+            // LireLettres.RemplirListeLettres();
+            // lirefichier
+            LireFichiers.ParcourirFichiers();
         }
 
         private void Search_Bar_TextChanged(object sender, EventArgs e)
@@ -36,6 +38,16 @@ namespace Gestion
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BTN_Save_Click(object sender, EventArgs e)
+        {
+            LireFichiers.SauverFichiers();
         }
     }
 }
