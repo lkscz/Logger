@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,5 +50,16 @@ namespace Gestion
         {
             LireFichiers.SauverFichiers();
         }
+
+        private void Btn_Letters_Click(object sender, EventArgs e)
+        {
+            
+            LireLettres lireLettres = new LireLettres();
+
+            var textsplit = TBX_SearchBar.Text.Split(',');
+
+            lireLettres.RemplirListeLettres(textsplit);
+        }
+        
     }
 }

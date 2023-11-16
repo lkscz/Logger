@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gestion", "Gestion\Gestion.csproj", "{E680A0F8-F97E-4F87-AB8B-39ED9226CBE5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LireLettersTest", "LireLettersTest\LireLettersTest.csproj", "{D458E2BA-935E-44E8-8387-08B34F1222FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{E680A0F8-F97E-4F87-AB8B-39ED9226CBE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E680A0F8-F97E-4F87-AB8B-39ED9226CBE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E680A0F8-F97E-4F87-AB8B-39ED9226CBE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D458E2BA-935E-44E8-8387-08B34F1222FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D458E2BA-935E-44E8-8387-08B34F1222FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D458E2BA-935E-44E8-8387-08B34F1222FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D458E2BA-935E-44E8-8387-08B34F1222FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

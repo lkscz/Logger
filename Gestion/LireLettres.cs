@@ -1,48 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Gestion
 {
-    public static class LireLettres
+    public class LireLettres
     {
-        private static SortedList<string, int> listelignes = new SortedList<string, int>();
-        public static void RemplirListeLettres()
+        public LireLettres() 
         {
-            string[] listedeligne = new string[] { "A", "A", "A", "B", "A", "C", "C" };
-
+            listelignes = new SortedList<string, int>();
+        }
+        public SortedList<string, int> listelignes { get; set; }
+        public void RemplirListeLettres(string[] listedeligne)
+        {
             for (int i = 0; i < listedeligne.Length; i++)
             {
-
-
                 string ligne = listedeligne[i];
-                LireLigne(ligne);
+                //LireLigne(ligne);
+                CreateLigne(ligne);
             }
 
 
         }
-
-        private static void LireLigne(string ligne)
-        {
-            if (ligne == "A")
-            {
-                CreateLigneA(ligne);
-            }
-
-            if (ligne == "B")
-            {
-                CreateLigneB(ligne);
-            }
-
-            if (ligne == "C")
-            {
-                CreateLigneC(ligne);
-            }
-        }
-
-        private static void CreateLigneA(string lettre)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="lettre"></param>
+        private void CreateLigne(string lettre)
         {
             //List<string> ligneA = new List<string>();
             //ligneA.Add(ligne);
@@ -57,30 +44,9 @@ namespace Gestion
                 listelignes.Add(lettre, 1);
             }
         }
-        private static void CreateLigneB(string lettre)
-        {
-            if (listelignes.ContainsKey(lettre))
-            {
-                listelignes[lettre]++;
-
-            }
-            else
-            {
-                listelignes.Add(lettre, 1);
-            }
-        }
-        private static void CreateLigneC(string lettre)
-        {
-            if (listelignes.ContainsKey(lettre))
-            {
-                listelignes[lettre]++;
-
-            }
-            else
-            {
-                listelignes.Add(lettre, 1);
-            }
-        }
     }
 
+    
+
+    
 }
