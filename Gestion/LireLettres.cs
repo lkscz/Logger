@@ -42,6 +42,7 @@ namespace Gestion
             else
             {
                 listelignes.Add(lettre, 1);
+
             }
         }
     }

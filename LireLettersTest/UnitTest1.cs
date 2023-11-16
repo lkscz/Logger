@@ -24,7 +24,7 @@ namespace LireLettersTest
         [TestMethod]
         public void TestMethod_A4_B1_C2_Test()
         {
-            string[] listedeligne = new string[] {"A", "A", "A", "B", "A", "C", "C", "T", "Y", "H", "TYD", "TYD", "çUine8n", "Quand on y pense", "disque dur externe, SSD ou undisque dur  interne ?" };
+            string[] listedeligne = new string[] {"A", "A", "A", "B", "A", "C", "C", "T", "Y", "H", "TYD", "TYD", "çUine8n", "Quand on y pense", "disque dur externe, SSD ou un disque dur  interne ?" };
             LireLettres lireLettres = new LireLettres();
 
             lireLettres.RemplirListeLettres(listedeligne);
@@ -38,7 +38,9 @@ namespace LireLettersTest
             Assert.AreEqual(lireLettres.listelignes["TYD"], 2);
             Assert.AreEqual(lireLettres.listelignes["çUine8n"], 1);
             Assert.AreEqual(lireLettres.listelignes["Quand on y pense"], 1);
-            Assert.AreEqual(lireLettres.listelignes["disque dur externe, SSD ou undisque dur  interne ?"], 1);
+            Assert.AreEqual(lireLettres.listelignes["disque dur externe, SSD ou un disque dur  interne ?"], 1);
         }   
+
+
     }
 }
