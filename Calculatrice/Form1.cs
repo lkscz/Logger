@@ -13,6 +13,10 @@ namespace Calculatrice
 {
     public partial class Form1 : Form
     {
+        private int First_Num;
+        private int Last_Num;
+        private string First_Serie;
+        private string Last_Serie;
         public Form1()
         {
             InitializeComponent();
@@ -105,7 +109,10 @@ namespace Calculatrice
 
         private void Btn_Plus_Click(object sender, EventArgs e)
         {
+            First_Serie = TextBox.Text;
+            ClearTextBox();
             TextBox.Text += "+";
+            
         }
 
         private void Btn_Moins_Click(object sender, EventArgs e)
@@ -114,6 +121,16 @@ namespace Calculatrice
         }
 
         private void Btn_Execute_Click(object sender, EventArgs e)
+        {
+            Last_Serie = TextBox.Text;
+            First_Num = First_Serie;
+
+
+            Additioner(First_Num, Last_Num);
+            //Compute();
+        }
+
+        private void Compute()
         {
             try
             {
@@ -132,8 +149,12 @@ namespace Calculatrice
             if (TextBox.Text.Length != 0) 
             {
                 TextBox.Text = TextBox.Text.Substring(0, TextBox.Text.Length - 1); 
-            }
-           
+            }           
+        }
+
+        private void Clear()
+        {
+            TextBox.Text = TextBox.Text.Substring(0, TextBox.Text.Length -1);
         }
 
         private bool parentheseOuverte = false;
@@ -149,6 +170,11 @@ namespace Calculatrice
                 TextBox.Text += "(";
                 parentheseOuverte = true;
             }
+        }
+
+        private int Additioner(int a, int b)
+        {
+            return a + b;
         }
         
     }

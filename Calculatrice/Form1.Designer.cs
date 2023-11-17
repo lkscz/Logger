@@ -178,7 +178,7 @@
             // Btn_0
             // 
             this.Btn_0.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.Btn_0.Location = new System.Drawing.Point(616, 548);
+            this.Btn_0.Location = new System.Drawing.Point(544, 548);
             this.Btn_0.Name = "Btn_0";
             this.Btn_0.Size = new System.Drawing.Size(66, 60);
             this.Btn_0.TabIndex = 13;
@@ -200,9 +200,9 @@
             // Btn_Virgule
             // 
             this.Btn_Virgule.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.Btn_Virgule.Location = new System.Drawing.Point(687, 548);
+            this.Btn_Virgule.Location = new System.Drawing.Point(616, 548);
             this.Btn_Virgule.Name = "Btn_Virgule";
-            this.Btn_Virgule.Size = new System.Drawing.Size(66, 60);
+            this.Btn_Virgule.Size = new System.Drawing.Size(137, 60);
             this.Btn_Virgule.TabIndex = 17;
             this.Btn_Virgule.Text = ".";
             this.Btn_Virgule.UseVisualStyleBackColor = false;
@@ -235,9 +235,9 @@
             // 
             this.listBoxHistory.FormattingEnabled = true;
             this.listBoxHistory.ItemHeight = 16;
-            this.listBoxHistory.Location = new System.Drawing.Point(242, 8);
+            this.listBoxHistory.Location = new System.Drawing.Point(6, 8);
             this.listBoxHistory.Name = "listBoxHistory";
-            this.listBoxHistory.Size = new System.Drawing.Size(120, 84);
+            this.listBoxHistory.Size = new System.Drawing.Size(356, 84);
             this.listBoxHistory.TabIndex = 1;
             // 
             // TextBox
@@ -261,9 +261,9 @@
             // 
             // Btn_Pourcentage
             // 
-            this.Btn_Pourcentage.Location = new System.Drawing.Point(616, 286);
+            this.Btn_Pourcentage.Location = new System.Drawing.Point(544, 286);
             this.Btn_Pourcentage.Name = "Btn_Pourcentage";
-            this.Btn_Pourcentage.Size = new System.Drawing.Size(66, 58);
+            this.Btn_Pourcentage.Size = new System.Drawing.Size(138, 58);
             this.Btn_Pourcentage.TabIndex = 28;
             this.Btn_Pourcentage.Text = "%";
             this.Btn_Pourcentage.UseVisualStyleBackColor = true;
@@ -292,9 +292,9 @@
             // 
             // Btn_Parentheses
             // 
-            this.Btn_Parentheses.Location = new System.Drawing.Point(544, 286);
+            this.Btn_Parentheses.Location = new System.Drawing.Point(687, 286);
             this.Btn_Parentheses.Name = "Btn_Parentheses";
-            this.Btn_Parentheses.Size = new System.Drawing.Size(66, 58);
+            this.Btn_Parentheses.Size = new System.Drawing.Size(138, 58);
             this.Btn_Parentheses.TabIndex = 31;
             this.Btn_Parentheses.Text = "(       )";
             this.Btn_Parentheses.UseVisualStyleBackColor = true;
