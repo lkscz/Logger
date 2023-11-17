@@ -45,6 +45,8 @@ namespace Gestion
 
             }
         }
+
+        // parcours ligne
     }
 
     
