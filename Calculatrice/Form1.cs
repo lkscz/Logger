@@ -70,7 +70,7 @@ namespace Calculatrice
             Number_Clicked(1);
         }
 
-        private void Number_Clicked(int number)
+        public   void Number_Clicked(int number)
         {
             string snumber = number.ToString();
 
@@ -106,26 +106,31 @@ namespace Calculatrice
             TextBox.Text += "/";
         }
 
-        private void Btn_Supprimer_Click_1(object sender, EventArgs e)
+        public void Btn_Supprimer_Click_1(object sender, EventArgs e)
         {
             ClearTextBox();
         }
 
-        private void ClearTextBox()
+        public void ClearTextBox()
         {
             TextBox.Clear();
         }
-        private void GroupBox_Enter(object sender, EventArgs e)
+        public void GroupBox_Enter(object sender, EventArgs e)
         {
 
         }
 
-        private void TextBox_TextChanged(object sender, EventArgs e)
+        public void TextBox_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void Btn_Plus_Click(object sender, EventArgs e)
+        public void Btn_Plus_Click(object sender, EventArgs e)
+        {
+            Last_Num = Number_Del();
+        }
+
+        public int Number_Del()
         {
             string valeurTexte = TextBox.Text;
             int valeurEntiere;
@@ -135,62 +140,58 @@ namespace Calculatrice
                 MessageBox.Show("La conversion a échouée . Assurez-vous d'entrer un nombre valide");
             }
 
-            First_Num = valeurEntiere;
-
             Btn_Plus_Clicked = true;
-
+            return valeurEntiere;
         }
 
-        private void Btn_Moins_Click(object sender, EventArgs e)
+        public void Btn_Moins_Click(object sender, EventArgs e)
         {
             TextBox.Text += "-";
         }
 
-        private void Btn_Execute_Click(object sender, EventArgs e)
+        public void Btn_Execute_Click(object sender, EventArgs e)
         {
-            //Last_Serie = TextBox.Text;
-            //Compute();
+            if (Btn_Exe_Clicked)
+            {
+               
+            }
+            string valeurTexte = TextBox.Text;
+            int valeurEntiere;
 
-            //if (Btn_Exe_Clicked)
-            //{
-            //    try
-            //    {
-            //        double result = EvaluateExpression(TextBox.Text);
-            //        MessageBox.Show($"Résultat : {result}");
-            //        TextBox.Text = "";
-            //        Btn_Exe_Clicked = false;
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show($"Erreur : {ex.Message}");
-            //    }
-            //}
+            if (!int.TryParse(valeurTexte, out valeurEntiere))
+            {
+                MessageBox.Show("La conversion a échouée . Assurez-vous d'entrer un nombre valide");
+            }
+
+            Last_Num = valeurEntiere;
+            int somme = Additioner(First_Num, Last_Num);
+            TextBox.Text = somme.ToString();
         }
 
-        //private double EvaluateExpression(string expression)
-        //{
-        //    DataTable table = new DataTable();
-        //    table.Columns.Add("expression", typeof(string), expression);
-        //    DataRow row = table.NewRow();
-        //    table.Rows.Add(row);
-        //    return double.Parse((string)row["expression"]);
-        //}
+        public double EvaluateExpression(string expression)
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("expression", typeof(string), expression);
+            DataRow row = table.NewRow();
+            table.Rows.Add(row);
+            return double.Parse((string)row["expression"]);
+        }
 
-        //private void Compute()
-        //{
-        //    try
-        //    {
-        //        var dataTable = new DataTable();
-        //        var result = dataTable.Compute(TextBox.Text, "");
-        //        TextBox.Text = result.ToString();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Erreur de calcul : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
+        public void Compute()
+        {
+            try
+            {
+                var dataTable = new DataTable();
+                var result = dataTable.Compute(TextBox.Text, "");
+                TextBox.Text = result.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur de calcul : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
-        private void Btn_Clear_Click(object sender, EventArgs e)
+        public void Btn_Clear_Click(object sender, EventArgs e)
         {
             if (TextBox.Text.Length != 0) 
             {
@@ -198,13 +199,13 @@ namespace Calculatrice
             }           
         }
 
-        private void Clear()
+        public void Clear()
         {
             TextBox.Text = TextBox.Text.Substring(0, TextBox.Text.Length -1);
         }
 
-        private bool parentheseOuverte = false;
-        private void Btn_Parentheses_Click(object sender, EventArgs e)
+        public bool parentheseOuverte = false;
+        public void Btn_Parentheses_Click(object sender, EventArgs e)
         {
             if (parentheseOuverte)
             {
@@ -218,12 +219,12 @@ namespace Calculatrice
             }
         }
 
-        private int Additioner(int a, int b)
+        public int Additioner(int a, int b)
         {
             return a + b;
         }
 
-        private void listBoxHistory_SelectedIndexChanged(object sender, EventArgs e)
+        public void listBoxHistory_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
