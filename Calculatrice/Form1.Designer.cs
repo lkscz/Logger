@@ -233,12 +233,14 @@
             // 
             // listBoxHistory
             // 
+            this.listBoxHistory.AllowDrop = true;
             this.listBoxHistory.FormattingEnabled = true;
             this.listBoxHistory.ItemHeight = 16;
             this.listBoxHistory.Location = new System.Drawing.Point(6, 8);
             this.listBoxHistory.Name = "listBoxHistory";
             this.listBoxHistory.Size = new System.Drawing.Size(356, 84);
             this.listBoxHistory.TabIndex = 1;
+            this.listBoxHistory.SelectedIndexChanged += new System.EventHandler(this.listBoxHistory_SelectedIndexChanged);
             // 
             // TextBox
             // 
@@ -288,7 +290,6 @@
             this.Btn_Clear.TabIndex = 30;
             this.Btn_Clear.Text = "Clear";
             this.Btn_Clear.UseVisualStyleBackColor = false;
-            this.Btn_Clear.Click += new System.EventHandler(this.Btn_Clear_Click);
             // 
             // Btn_Parentheses
             // 
