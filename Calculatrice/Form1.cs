@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Contracts;
 using System.Drawing;
 using System.Linq;
 using System.Linq.Expressions;
@@ -14,15 +15,11 @@ namespace Calculatrice
 {
     public partial class Form1 : Form
     {
-        private int First_Num;
-        private int Last_Num; 
-        private string First_Serie;
-        private string Last_Serie;
-        private bool Btn_Plus_Clicked = false;
-        private bool Btn_Exe_Clicked = false;
+        Calculette calculette;
         public Form1()
         {
             InitializeComponent();
+            calculette = new Calculette();
         }
 
         private void Btn_9_Click(object sender, EventArgs e)
@@ -70,14 +67,24 @@ namespace Calculatrice
             Number_Clicked(1);
         }
 
-        public   void Number_Clicked(int number)
+        private void Btn_0_Click(object sender, EventArgs e)
+        {
+            Number_Clicked(0);
+        }
+
+        public void Number_Clicked(int number)
+        {
+            Number_Click(number);
+        }
+
+        private void Number_Click(int number)
         {
             string snumber = number.ToString();
 
-            if (Btn_Plus_Clicked)
+            if (calculette.Btn_Plus_Clicked)
             {
                 TextBox.Text = snumber;
-                Btn_Plus_Clicked = false;
+                calculette.Btn_Plus_Clicked = false;
             }
             else
             {
@@ -85,12 +92,11 @@ namespace Calculatrice
             }
         }
 
-        private void Btn_0_Click(object sender, EventArgs e)
+        public void Soustraire_Clicked(int soustraire)
         {
-            Number_Clicked(0);
         }
 
-        
+
         private void Btn_Virgule_Click(object sender, EventArgs e)
         {
             TextBox.Text += ",";
@@ -98,8 +104,22 @@ namespace Calculatrice
 
         private void Btn_Multiplier_Click(object sender, EventArgs e)
         {
-            TextBox.Text += "*";
+            TextBox.Text = calculette.Calculer(TextBox.Text);
         }
+
+        //public int Number_Del_Multiplier()
+        //{
+        //    string valeurTexte = TextBox.Text;
+        //    int valeurEntiere;
+
+        //    if (!int.TryParse(valeurTexte, out valeurEntiere))
+        //    {
+
+        //    }
+
+        //    Btn_Multiplier_Clicked = true;
+        //    return valeurEntiere;
+        //}
 
         private void Btn_Diviser_Click(object sender, EventArgs e)
         {
@@ -127,10 +147,15 @@ namespace Calculatrice
 
         public void Btn_Plus_Click(object sender, EventArgs e)
         {
-            Last_Num = Number_Del();
+            calculette.First_Num = Number_Del_Plus();
         }
 
-        public int Number_Del()
+        public int Number_Del_Plus()
+        {
+            return Ajouter();
+        }
+
+        private int Ajouter()
         {
             string valeurTexte = TextBox.Text;
             int valeurEntiere;
@@ -140,31 +165,19 @@ namespace Calculatrice
                 MessageBox.Show("La conversion a échouée . Assurez-vous d'entrer un nombre valide");
             }
 
-            Btn_Plus_Clicked = true;
+            calculette.Btn_Plus_Clicked = true;
             return valeurEntiere;
         }
 
         public void Btn_Moins_Click(object sender, EventArgs e)
         {
-            TextBox.Text += "-";
+            TextBox.Text = calculette.Calculer(TextBox.Text);
         }
 
         public void Btn_Execute_Click(object sender, EventArgs e)
         {
-            if (Btn_Exe_Clicked)
-            {
-               
-            }
-            string valeurTexte = TextBox.Text;
-            int valeurEntiere;
-
-            if (!int.TryParse(valeurTexte, out valeurEntiere))
-            {
-                MessageBox.Show("La conversion a échouée . Assurez-vous d'entrer un nombre valide");
-            }
-
-            Last_Num = valeurEntiere;
-            int somme = Additioner(First_Num, Last_Num);
+            calculette.Last_Num = Number_Del_Plus();
+            int somme = Additioner(calculette.First_Num, calculette.Last_Num);
             TextBox.Text = somme.ToString();
         }
 
@@ -195,7 +208,7 @@ namespace Calculatrice
         {
             if (TextBox.Text.Length != 0) 
             {
-                TextBox.Text = TextBox.Text.Substring(0, TextBox.Text.Length - 1); 
+                Clear();
             }           
         }
 
@@ -224,7 +237,22 @@ namespace Calculatrice
             return a + b;
         }
 
+        public int Multiplier(int a, int b)
+        {
+            return a * b;
+        }
+
+        public int Soustraire(int a, int b)
+        {
+            return a - b;
+        }
+
         public void listBoxHistory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
