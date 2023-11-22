@@ -16,6 +16,9 @@ namespace Calculatrice
     public partial class Form1 : Form
     {
         Calculette calculette;
+
+        private bool parentheseOuverte = false;
+
         public Form1()
         {
             InitializeComponent();
@@ -81,10 +84,10 @@ namespace Calculatrice
         {
             string snumber = number.ToString();
 
-            if (calculette.Btn_Plus_Clicked)
+            if (calculette.Btn_Diviser_Clicked)
             {
                 TextBox.Text = snumber;
-                calculette.Btn_Plus_Clicked = false;
+                calculette.Btn_Diviser_Clicked = false;
             }
             else
             {
@@ -92,38 +95,9 @@ namespace Calculatrice
             }
         }
 
-        public void Soustraire_Clicked(int soustraire)
-        {
-        }
-
-
         private void Btn_Virgule_Click(object sender, EventArgs e)
         {
             TextBox.Text += ",";
-        }
-
-        private void Btn_Multiplier_Click(object sender, EventArgs e)
-        {
-            TextBox.Text = calculette.Calculer(TextBox.Text);
-        }
-
-        //public int Number_Del_Multiplier()
-        //{
-        //    string valeurTexte = TextBox.Text;
-        //    int valeurEntiere;
-
-        //    if (!int.TryParse(valeurTexte, out valeurEntiere))
-        //    {
-
-        //    }
-
-        //    Btn_Multiplier_Clicked = true;
-        //    return valeurEntiere;
-        //}
-
-        private void Btn_Diviser_Click(object sender, EventArgs e)
-        {
-            TextBox.Text += "/";
         }
 
         public void Btn_Supprimer_Click_1(object sender, EventArgs e)
@@ -147,38 +121,27 @@ namespace Calculatrice
 
         public void Btn_Plus_Click(object sender, EventArgs e)
         {
-            calculette.First_Num = Number_Del_Plus();
-        }
-
-        public int Number_Del_Plus()
-        {
-            return Ajouter();
-        }
-
-        private int Ajouter()
-        {
-            string valeurTexte = TextBox.Text;
-            int valeurEntiere;
-
-            if (!int.TryParse(valeurTexte, out valeurEntiere))
-            {
-                MessageBox.Show("La conversion a échouée . Assurez-vous d'entrer un nombre valide");
-            }
-
-            calculette.Btn_Plus_Clicked = true;
-            return valeurEntiere;
+            calculette.First_Num = calculette.Ajouter(TextBox.Text);
         }
 
         public void Btn_Moins_Click(object sender, EventArgs e)
         {
-            TextBox.Text = calculette.Calculer(TextBox.Text);
+            calculette.First_Num = calculette.Enlever(TextBox.Text);
+        }
+
+        public void Btn_Multiplier_Click(object sender, EventArgs e)
+        {
+            calculette.First_Num = calculette.Multiplier(TextBox.Text);
+        }
+
+        public void Btn_Diviser_Click(object sender, EventArgs e)
+        {
+            calculette.First_Num = calculette.Diviser(TextBox.Text);
         }
 
         public void Btn_Execute_Click(object sender, EventArgs e)
         {
-            calculette.Last_Num = Number_Del_Plus();
-            int somme = Additioner(calculette.First_Num, calculette.Last_Num);
-            TextBox.Text = somme.ToString();
+            ESigne signe = calculette.Calcul
         }
 
         public double EvaluateExpression(string expression)
@@ -217,7 +180,6 @@ namespace Calculatrice
             TextBox.Text = TextBox.Text.Substring(0, TextBox.Text.Length -1);
         }
 
-        public bool parentheseOuverte = false;
         public void Btn_Parentheses_Click(object sender, EventArgs e)
         {
             if (parentheseOuverte)
@@ -232,21 +194,6 @@ namespace Calculatrice
             }
         }
 
-        public int Additioner(int a, int b)
-        {
-            return a + b;
-        }
-
-        public int Multiplier(int a, int b)
-        {
-            return a * b;
-        }
-
-        public int Soustraire(int a, int b)
-        {
-            return a - b;
-        }
-
         public void listBoxHistory_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -258,3 +205,14 @@ namespace Calculatrice
         }
     }
 }
+//calculette.Last_Num = calculette.Enlever(TextBox.Text);
+//int calcul = calculette.Soustraire(calculette.First_Num, calculette.Last_Num);
+//TextBox.Text = calcul.ToString();
+
+//calculette.Last_Num = calculette.Multiplier(TextBox.Text);
+//int calcul = calculette.Multiplication(calculette.First_Num, calculette.Last_Num);
+//TextBox.Text = calcul.ToString();
+
+//calculette.Last_Num = calculette.Diviser(TextBox.Text);
+//int calcul = calculette.Division(calculette.First_Num, calculette.Last_Num);
+//TextBox.Text = calcul.ToString();
