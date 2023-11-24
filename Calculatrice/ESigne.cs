@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Calculatrice
 {
-    internal class ESigne
+    public enum ESigne
     {
+        ADDITION,
+        SOUSTRACTION,
+        MULTIPLICATION,
+        DIVISION,
+        NONDEFINI,
     }
 }

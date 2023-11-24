@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,33 +27,46 @@ namespace Calculatrice
             Btn_Exe_Clicked = false;
             Btn_Moins_Clicked = false;
             Btn_Diviser_Clicked = false;
+            Signe = ESigne.NONDEFINI;
         }
        
-        public string Calcul()
+        public string Calcul(string texte)
         {
-            
+            LastValue(texte);
 
+            // Last_Num = Ajouter();
+
+            return DonneResultatCalcul();
+        }
+
+        private void LastValue(string texte)
+        {
+            int valeurEntiere;
+
+            if (!int.TryParse(texte, out valeurEntiere))
+            {
+                Last_Num = valeurEntiere;
+            }
+        }
+
+        private string DonneResultatCalcul()
+        {
             int calcul = 0;
-
             switch (Signe)
             {
                 case ESigne.ADDITION:
-                    Last_Num = Ajouter();
                     calcul = Additioner(First_Num, Last_Num);
                     calcul.ToString();
                     break;
                 case ESigne.SOUSTRACTION:
-                    Last_Num = Enlever();
                     calcul = Soustraire(First_Num, Last_Num);
                     calcul.ToString();
                     break;
                 case ESigne.MULTIPLICATION:
-                    Last_Num = Multiplier();
                     calcul = Multiplication(First_Num, Last_Num);
                     calcul.ToString();
                     break;
                 case ESigne.DIVISION:
-                    Last_Num = Diviser();
                     calcul = Division(First_Num, Last_Num);
                     calcul.ToString();
                     break;
@@ -65,7 +79,7 @@ namespace Calculatrice
 
         public string Calculer(string chantTexte)
         {
-            int calcul = Additioner(First_Num, Last_Num);
+            int calcul = Soustraire(First_Num, Last_Num);
             chantTexte = calcul.ToString();
 
             string snumber = First_Num.ToString();
@@ -84,12 +98,11 @@ namespace Calculatrice
 
         public int AfterClickButtonSign(string textboxValue, ESigne signe)
         {
-            string valeurTexte = textboxValue;
             int valeurEntiere;
 
-            if (!int.TryParse(valeurTexte, out valeurEntiere))
+            if (int.TryParse(textboxValue, out valeurEntiere))
             {
-                MessageBox.Show("La conversion a échouée . Assurez-vous d'entrer un nombre valide");
+                First_Num = valeurEntiere;
             }
 
             Signe = signe;
@@ -102,7 +115,7 @@ namespace Calculatrice
 
             if (!int.TryParse(valeurTexte, out valeurEntiere))
             {
-                MessageBox.Show("La conversion a échouée . Assurez-vous d'entrer un nombre valide");
+            
             }
 
             Btn_Plus_Clicked = true;
@@ -115,7 +128,7 @@ namespace Calculatrice
 
             if (!int.TryParse(valeurTexte, out valeurEntiere))
             {
-                MessageBox.Show("La conversion a échoué. Assurez-vous d'avoir entré un nombre valide");
+            
             }
 
             Btn_Moins_Clicked = true;
@@ -129,7 +142,7 @@ namespace Calculatrice
 
             if (!int.TryParse(valeurTexte, out valeurEntiere))
             {
-                MessageBox.Show("La conversion a échoué. Assurez-vous s'avoir entré un nombre valide");
+            
             }
 
             Btn_Multiplier_Clicked = true;
@@ -143,7 +156,7 @@ namespace Calculatrice
 
             if (!int.TryParse(valeurTexte, out valeurEntiere))
             {
-                MessageBox.Show("La conversion a échoué. Assurez-vous d'avoir entré un nombre valide");
+            
             }
 
             Btn_Diviser_Clicked = true;

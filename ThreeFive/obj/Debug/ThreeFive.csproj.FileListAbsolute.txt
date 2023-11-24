@@ -1,0 +1,6 @@
+C:\Users\Administrateur\source\repos\Logger\ThreeFive\bin\Debug\ThreeFive.dll
+C:\Users\Administrateur\source\repos\Logger\ThreeFive\bin\Debug\ThreeFive.pdb
+C:\Users\Administrateur\source\repos\Logger\ThreeFive\obj\Debug\ThreeFive.csproj.AssemblyReference.cache
+C:\Users\Administrateur\source\repos\Logger\ThreeFive\obj\Debug\ThreeFive.csproj.CoreCompileInputs.cache
+C:\Users\Administrateur\source\repos\Logger\ThreeFive\obj\Debug\ThreeFive.dll
+C:\Users\Administrateur\source\repos\Logger\ThreeFive\obj\Debug\ThreeFive.pdb

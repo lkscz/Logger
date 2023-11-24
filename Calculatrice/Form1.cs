@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -84,10 +85,9 @@ namespace Calculatrice
         {
             string snumber = number.ToString();
 
-            if (calculette.Btn_Diviser_Clicked)
+            if (calculette.Signe != ESigne.NONDEFINI)
             {
                 TextBox.Text = snumber;
-                calculette.Btn_Diviser_Clicked = false;
             }
             else
             {
@@ -121,29 +121,33 @@ namespace Calculatrice
 
         public void Btn_Plus_Click(object sender, EventArgs e)
         {
-            calculette.First_Num = calculette.Ajouter(TextBox.Text);
+            //calculette.First_Num = calculette.Ajouter(TextBox.Text);
+            calculette.AfterClickButtonSign(TextBox.Text, ESigne.ADDITION);
         }
 
         public void Btn_Moins_Click(object sender, EventArgs e)
         {
-            calculette.First_Num = calculette.Enlever(TextBox.Text);
+            //calculette.First_Num = calculette.Enlever(TextBox.Text);
+            calculette.AfterClickButtonSign(TextBox.Text, ESigne.SOUSTRACTION);
         }
 
         public void Btn_Multiplier_Click(object sender, EventArgs e)
         {
-            calculette.First_Num = calculette.Multiplier(TextBox.Text);
+            //calculette.First_Num = calculette.Multiplier(TextBox.Text);
+            calculette.AfterClickButtonSign(TextBox.Text, ESigne.MULTIPLICATION);
         }
 
         public void Btn_Diviser_Click(object sender, EventArgs e)
         {
-            calculette.First_Num = calculette.Diviser(TextBox.Text);
+            //calculette.First_Num = calculette.Diviser(TextBox.Text);
+            calculette.AfterClickButtonSign(TextBox.Text, ESigne.DIVISION);
         }
 
         public void Btn_Execute_Click(object sender, EventArgs e)
         {
-            ESigne signe = calculette.Calcul
+            TextBox.Text = calculette.Calcul(TextBox.Text);
+            
         }
-
         public double EvaluateExpression(string expression)
         {
             DataTable table = new DataTable();
@@ -205,6 +209,10 @@ namespace Calculatrice
         }
     }
 }
+//calculette.Last_Num = calculette.Ajouter(TextBox.Text);
+//int calcul = calculette.Additionner(calculette.First_Num, calculette.Last_Num);
+//TextBox.Text = calcul.ToString();
+
 //calculette.Last_Num = calculette.Enlever(TextBox.Text);
 //int calcul = calculette.Soustraire(calculette.First_Num, calculette.Last_Num);
 //TextBox.Text = calcul.ToString();
