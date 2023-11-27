@@ -16,3 +16,5 @@
 *.cache
 *.vsidx
 .vs/Logger/FileContentIndex/8c1d42ff-e18b-4da2-8549-a1e8fcf19100.vsidx
+*.vsidx
+*.vsidx
