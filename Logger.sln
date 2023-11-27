@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestCalculatrice", "Uni
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculCalculatrice", "CalculCalculatrice\CalculCalculatrice.csproj", "{A146EE88-0224-43DB-A40A-A4E6DBAC66E6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadLogFiles", "ReadLogFiles\ReadLogFiles.csproj", "{6E630921-5A66-4561-BB3C-9B40AE86E9F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadLogFiles_Test", "ReadLogFiles_Test\ReadLogFiles_Test.csproj", "{6CF557ED-5CFA-4B78-A792-85D1F697518C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{A146EE88-0224-43DB-A40A-A4E6DBAC66E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A146EE88-0224-43DB-A40A-A4E6DBAC66E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A146EE88-0224-43DB-A40A-A4E6DBAC66E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E630921-5A66-4561-BB3C-9B40AE86E9F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E630921-5A66-4561-BB3C-9B40AE86E9F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E630921-5A66-4561-BB3C-9B40AE86E9F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E630921-5A66-4561-BB3C-9B40AE86E9F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CF557ED-5CFA-4B78-A792-85D1F697518C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CF557ED-5CFA-4B78-A792-85D1F697518C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CF557ED-5CFA-4B78-A792-85D1F697518C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CF557ED-5CFA-4B78-A792-85D1F697518C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
