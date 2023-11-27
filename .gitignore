@@ -4,7 +4,3 @@
 *.pdb
 *.txt
 *.config
-
-git add .gitignore
-git commit -m
-git push
