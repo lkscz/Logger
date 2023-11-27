@@ -2,3 +2,5 @@
 *.vsidx
 *.suo
 *.pdb
+*.txt
+*.config
