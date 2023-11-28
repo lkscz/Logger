@@ -30,11 +30,13 @@
         {
             this.btn_FindError = new System.Windows.Forms.Button();
             this.ShowErrorBox = new System.Windows.Forms.TextBox();
+            this.Save_Files = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btn_FindError
             // 
-            this.btn_FindError.Location = new System.Drawing.Point(154, 48);
+            this.btn_FindError.Location = new System.Drawing.Point(85, 48);
             this.btn_FindError.Name = "btn_FindError";
             this.btn_FindError.Size = new System.Drawing.Size(121, 35);
             this.btn_FindError.TabIndex = 0;
@@ -44,15 +46,37 @@
             // 
             // ShowErrorBox
             // 
-            this.ShowErrorBox.Location = new System.Drawing.Point(12, 129);
+            this.ShowErrorBox.Location = new System.Drawing.Point(13, 137);
             this.ShowErrorBox.Name = "ShowErrorBox";
             this.ShowErrorBox.Size = new System.Drawing.Size(412, 22);
             this.ShowErrorBox.TabIndex = 1;
             this.ShowErrorBox.TextChanged += new System.EventHandler(this.ShowErrorBox_TextChanged);
             // 
+            // Save_Files
+            // 
+            this.Save_Files.Location = new System.Drawing.Point(240, 48);
+            this.Save_Files.Name = "Save_Files";
+            this.Save_Files.Size = new System.Drawing.Size(112, 35);
+            this.Save_Files.TabIndex = 2;
+            this.Save_Files.Text = "Save Files";
+            this.Save_Files.UseVisualStyleBackColor = true;
+            this.Save_Files.Click += new System.EventHandler(this.Save_Files_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(12, 190);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox2.Size = new System.Drawing.Size(412, 147);
+            this.textBox2.TabIndex = 3;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
             // Form
             // 
-            this.ClientSize = new System.Drawing.Size(436, 253);
+            this.ClientSize = new System.Drawing.Size(437, 349);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.Save_Files);
             this.Controls.Add(this.ShowErrorBox);
             this.Controls.Add(this.btn_FindError);
             this.Name = "Form";
@@ -67,6 +91,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btn_FindError;
         private System.Windows.Forms.TextBox ShowErrorBox;
+        private System.Windows.Forms.Button Save_Files;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 

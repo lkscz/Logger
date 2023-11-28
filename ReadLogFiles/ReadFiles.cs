@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Dynamic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,11 +16,12 @@ namespace ReadLogFiles
         {
             Lines = new List<string>();
             LinesError = new List<string>();
+            LinesByError = new SortedList<string, int>();
         }
 
         public List<string> Lines { get; set; }
         public List<string> LinesError { get; set; }
-
+        public SortedList<string, int> LinesByError { get; set; }
         private const string ERROR = "error";
 
 
@@ -43,6 +45,26 @@ namespace ReadLogFiles
             catch (Exception)
             {
                 throw;
+            }
+        }
+
+        public void WriteLines(string cheminFichier)
+        {
+            File.WriteAllLines(cheminFichier, LinesError.ToArray());
+        }
+
+        public void StackErrors()
+        {
+            foreach(string line in LinesError)
+            {
+                if (LinesByError.ContainsKey(line))
+                {
+                    LinesByError[line]++;
+                }
+                else
+                {
+                    LinesByError.Add(line, 1);
+                }
             }
         }
     }
