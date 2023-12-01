@@ -17,10 +17,10 @@ namespace UnitTestErrorELENA
         {
             var logerrorelena = new ErrorELENA();
 
-            var logLines = "2023-11-27 09:18:12.5599;XEN-10;oceane.brizard;GestionSinistre.DefaultElenaLogger;Le rdv est déjà supprimé;Warn;\"Status Code: NotFound";
+            var logLines = "2023-11-27 09:18:12";
 
             Assert.IsTrue(logerrorelena.FirstDate(logLines));
-            Assert.AreEqual(DateTime.ParseExact("2023-11-27 09:18:12.5599", "yyyy-MM-dd HH:mm:ss.ffff", CultureInfo.InvariantCulture), logerrorelena.DateTimeBeginning);
+            Assert.AreEqual(new DateTime(2023, 11, 27, 09, 18, 12), logerrorelena.DateTimeBeginning);
         }
 
         [TestMethod]
@@ -41,33 +41,23 @@ namespace UnitTestErrorELENA
 
             var logLines = @"à GestionSinistre.Business.ExchangeManager.bgw_Delete_DoWork(Object sender, DoWorkEventArgs e) dans D:\a\1\s\GestionSinistre.Business\MANAGER\Exchange\ExchangeManager.cs:ligne 844";
 
-            string line = "Invalid log entry";
-
             Assert.AreEqual(true, logerrorelena.ErrorLine(logLines));
-            Assert.AreEqual("844", logerrorelena.Lines);
+            Assert.AreEqual(844, logerrorelena.LineNumber);
         }
 
         [TestMethod]
-        public void ErrorLineInvalid()
+        public void ErrorLineKO()
         {
             var logerrorelena = new ErrorELENA();
-
             var logLines = "Invalid log entry";
-
-            string line = "Invalid log entry";
-
             Assert.IsFalse(logerrorelena.ErrorLine(logLines));
-            Assert.AreEqual("844", logerrorelena.Lines); 
         }
 
         [TestMethod]
-        public void NameOfTheServer()
+        public void NameServer()
         {
             var logerrorelena = new ErrorELENA();
-
             var logLines = "2023-11-27 09:19:12.5599;XEN-10;oceane.brizard;";
-
-            string line = "Invalid log entry";
 
             Assert.IsTrue(logerrorelena.NameOfTheServer(logLines));
             Assert.AreEqual("XEN-10", logerrorelena.ServerName);
@@ -77,10 +67,7 @@ namespace UnitTestErrorELENA
         public void NameOfTheUser()
         {
             var logerrorelena = new ErrorELENA();
-
             var logLines = "2023-11-27 09:19:12.5599;XEN-10;oceane.brizard;";
-
-            string line = "Invalid log entry";
 
             Assert.IsTrue(!logerrorelena.NameOfTheUser(logLines));
             Assert.AreEqual("oceane.brizard", logerrorelena.UserName);
